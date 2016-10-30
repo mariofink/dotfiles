@@ -10,4 +10,4 @@ $ vim +PluginInstall +qall
 
 ## Zsh
 Using Agnoster theme to be used together with a Powerline font.
-Using mark & jump scripts to navigate the file system easily (see: [Quickly navigate your filesystem from the command-line](http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html)
+Using mark & jump scripts to navigate the file system easily (see: [Quickly navigate your filesystem from the command-line](http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html))
