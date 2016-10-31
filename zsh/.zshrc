@@ -51,12 +51,12 @@ source $HOME/.aliases
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx git grunt svn-fast-info jira colorize)
+plugins=(osx git grunt colorize)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/apache-ant-1.8.2/bin
+export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
 # see: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
@@ -81,12 +81,6 @@ compctl -K _completemarks unmark
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 uservm
-
-# JIRA plugin
-JIRA_URL=https://goodyear-dunlop.atlassian.net
-JIRA_NAME=mario.fink@goodyear.com
-JIRA_PREFIX=
-JIRA_DEFAULT_ACTION=dashboard
 
 export PATH="/usr/local/sbin:$PATH"
 
