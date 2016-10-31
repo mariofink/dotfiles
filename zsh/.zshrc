@@ -10,11 +10,17 @@ ZSH_THEME="agnoster"
 
 DEFAULT_USER="neif461"
 
-source $HOME/.aliases
-
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vi='mvim -v'
+alias vim='mvim -v'
+alias ll='ls -lah'
+alias search='find . -iname '
+alias cd..='cd ..'
+alias serve='python -m SimpleHTTPServer 4321'
+
+source $HOME/.aliases
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
