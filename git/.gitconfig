@@ -1,0 +1,40 @@
+[user]
+	name = Mario Fink
+	email = mario.fink@goodyear.com
+[url "https://"]
+	insteadOf = git://
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+	editor = /usr/bin/vim
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[commit]
+	template = ~/.stCommitMsg
+[alias]
+	edit-config = !atom ~/.gitconfig
+	amend = commit -a --amend
+	co = checkout
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	graph = log --graph --oneline --decorate
+	unstage = reset HEAD --
+	st = status
+	ci = commit
+	br = branch
+	up = !git pull --rebase --prune $@ && git log --oneline --name-status ORIG_HEAD..
+	new = flow feature start
+	finish = flow feature finish
+	show-ignored = !git ls-files -v | grep -E "^[S]" # list files with the skip-worktree flag
+	ignore = update-index --skip-worktree # set the skip-worktree flag for a specified file
+	unignore = update-index --no-skip-worktree
+	delete-last-commit = reset --hard HEAD~1
+	rv = git checkout HEAD -- # reset(revert) changes to a file
+	ec = !vi ~/.gitconfig
