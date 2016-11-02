@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'chriskempson/vim-tomorrow-theme'
 
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 Plugin 'mattn/emmet-vim'
 
@@ -94,3 +94,7 @@ let mapleader = ","
 
 " Make EditorConfig plugin work well with fugitive and over ssh
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
