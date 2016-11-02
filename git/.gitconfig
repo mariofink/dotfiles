@@ -36,5 +36,5 @@
 	ignore = update-index --skip-worktree # set the skip-worktree flag for a specified file
 	unignore = update-index --no-skip-worktree
 	delete-last-commit = reset --hard HEAD~1
-	rv = git checkout HEAD -- # reset(revert) changes to a file
+	rv = checkout HEAD -- # reset(revert) changes to a file
 	ec = !vi ~/.gitconfig
