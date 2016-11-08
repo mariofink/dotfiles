@@ -41,7 +41,7 @@ filetype plugin indent on    " required
 " -- Display
 set title                 " Update the title of your window or your terminal
 set number                " Display line numbers
-
+set relativenumber        " Display line numbers relative to the current line
 set ruler                 " Display cursor position
 set wrap                  " Wrap lines when they are too long
 
@@ -89,12 +89,15 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-let mapleader = ","
+" Enter to insert a new line below
+" http://superuser.com/questions/607163/inserting-a-blank-line-in-vim#607189
+map <Enter> O<ESC>
 
 " Make EditorConfig plugin work well with fugitive and over ssh
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_working_path_mode = 'ra'
+
 
