@@ -23,6 +23,8 @@ Plugin 'pangloss/vim-javascript'
 
 Plugin 'othree/html5.vim'
 
+Plugin 'scrooloose/nerdtree'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -98,6 +100,8 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_working_path_mode = 'ra'
 
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

@@ -18,7 +18,7 @@ alias vim='mvim -v'
 alias ll='ls -lah'
 alias search='find . -iname '
 alias cd..='cd ..'
-alias serve='python -m SimpleHTTPServer 4321'
+alias serve='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary http://0.0.0.0:4321 & python -m SimpleHTTPServer 4321'
 
 source $HOME/.aliases
 
@@ -57,7 +57,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
-
+export PATH="/usr/local/sbin:$PATH"
+export PATH=$PATH:$HOME/.composer/vendor/bin
 # see: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
 function j {
@@ -79,10 +80,6 @@ function _completemarks {
 compctl -K _completemarks j
 compctl -K _completemarks unmark
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-uservm
-
-export PATH="/usr/local/sbin:$PATH"
 
 # Set Java_home
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
