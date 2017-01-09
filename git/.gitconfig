@@ -20,7 +20,7 @@
 [commit]
 	template = ~/.stCommitMsg
 [alias]
-	edit-config = !atom ~/.gitconfig
+	edit-config = !vi ~/.gitconfig
 	amend = commit -a --amend
 	co = checkout
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -37,4 +37,4 @@
 	unignore = update-index --no-skip-worktree
 	delete-last-commit = reset --hard HEAD~1
 	rv = checkout HEAD -- # reset(revert) changes to a file
-	ec = !vi ~/.gitconfig
+        purge-tags = !git tag -l | xargs git tag -d && git fetch -t

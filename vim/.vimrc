@@ -77,6 +77,11 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Indentation settings
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
 colorscheme Tomorrow-Night
 
 set guifont=Source\ Code\ Pro\:h16
