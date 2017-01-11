@@ -7,6 +7,7 @@ You first need to install [Vundle](https://github.com/VundleVim/Vundle.Vim) and 
 $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 $ vim +PluginInstall +qall
 ```
+Forgot how one of those commands worked? Try my [**Vim Cheatsheet**](https://gist.github.com/mariofink/372104568780e26fa8846541c8e56e66)
 
 ## Zsh
 Using Agnoster theme to be used together with a Powerline font.
