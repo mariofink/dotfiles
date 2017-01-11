@@ -25,6 +25,11 @@ Plugin 'othree/html5.vim'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'tpope/vim-fugitive'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -84,7 +89,7 @@ set softtabstop=2
 
 colorscheme Tomorrow-Night
 
-set guifont=Source\ Code\ Pro\:h16
+set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set antialias
 
 " Disabling the directional keys
@@ -110,3 +115,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|' " use straight lines for tab separators
+set laststatus=2 " open statusline also on single panes
