@@ -25,16 +25,18 @@
 	co = checkout
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	graph = log --graph --oneline --decorate
+        last-sprint = log --since='2 weeks ago' --oneline --decorate --author=mario.fink@goodyear.com 
 	unstage = reset HEAD --
 	st = status
 	ci = commit
 	br = branch
-	up = !git pull --rebase --prune $@ && git log --oneline --name-status ORIG_HEAD..
+	up = !git pull --rebase --prune $@ && git log --oneline ORIG_HEAD..
 	new = flow feature start
-	finish = flow feature finish
+	finish = flow feature finish -S
 	show-ignored = !git ls-files -v | grep -E "^[S]" # list files with the skip-worktree flag
 	ignore = update-index --skip-worktree # set the skip-worktree flag for a specified file
 	unignore = update-index --no-skip-worktree
 	delete-last-commit = reset --hard HEAD~1
 	rv = checkout HEAD -- # reset(revert) changes to a file
         purge-tags = !git tag -l | xargs git tag -d && git fetch -t
+        recently-added = whatchanged --diff-filter=A

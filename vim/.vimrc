@@ -30,6 +30,8 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'posva/vim-vue'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,7 +56,10 @@ set wrap                  " Wrap lines when they are too long
 
 set scrolloff=3           " Display at least 3 lines around you cursor (for scrolling)
 
-set guioptions=T          " Enable the toolbar
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 " -- Search
 set ignorecase            " Ignore case when searching
