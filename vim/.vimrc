@@ -10,27 +10,17 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'chriskempson/vim-tomorrow-theme'
-
 Plugin 'ctrlpvim/ctrlp.vim'
-
 Plugin 'mattn/emmet-vim'
-
 Plugin 'editorconfig/editorconfig-vim'
-
 Plugin 'pangloss/vim-javascript'
-
 Plugin 'othree/html5.vim'
-
 Plugin 'scrooloose/nerdtree'
-
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
 Plugin 'tpope/vim-fugitive'
-
 Plugin 'posva/vim-vue'
+Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,7 +82,7 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-colorscheme Tomorrow-Night
+colorscheme base16-tomorrow-night
 
 set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set antialias
