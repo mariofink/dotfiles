@@ -116,3 +116,13 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|' " use straight lines for tab separators
 set laststatus=2 " open statusline also on single panes
+
+" Custom mappings
+let mapleader = ","
+" Auto-indent current buffer
+nnoremap <Leader>L gg=G<cr>
+" Strip all trailing whitespace
+nnoremap <Leader>W :%s/\s\+$//<cr>:let @/=''<cr>
+" Use Tab and Shift-Tab to cycle through buffers
+nnoremap <Tab> :bn<cr>
+nnoremap <S-Tab> :bp<cr>
