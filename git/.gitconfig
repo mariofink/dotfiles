@@ -1,42 +1,43 @@
 [user]
-	name = Mario Fink
-	email = mario.fink@goodyear.com
+  name = Mario Fink
+  email = mario.fink@goodyear.com
 [url "https://"]
-	insteadOf = git://
+  insteadOf = git://
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
 [core]
-	autocrlf = input
-	excludesfile = ~/.gitignore_global
-	editor = /usr/bin/vim
+  autocrlf = input
+  excludesfile = ~/.gitignore_global
+  editor = /usr/bin/vim
 [push]
-	default = simple
+  default = simple
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 [commit]
-	template = ~/.stCommitMsg
+  template = ~/.stCommitMsg
 [alias]
-	edit-config = !vi ~/.gitconfig
-	amend = commit -a --amend
-	co = checkout
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	graph = log --graph --oneline --decorate
-        last-sprint = log --since='2 weeks ago' --oneline --decorate --author=mario.fink@goodyear.com 
-	unstage = reset HEAD --
-	st = status
-	ci = commit
-	br = branch
-	up = !git pull --rebase --prune $@ && git log --oneline ORIG_HEAD..
-	new = flow feature start
-	finish = flow feature finish -S
-	show-ignored = !git ls-files -v | grep -E "^[S]" # list files with the skip-worktree flag
-	ignore = update-index --skip-worktree # set the skip-worktree flag for a specified file
-	unignore = update-index --no-skip-worktree
-	delete-last-commit = reset --hard HEAD~1
-	rv = checkout HEAD -- # reset(revert) changes to a file
-        purge-tags = !git tag -l | xargs git tag -d && git fetch -t
-        recently-added = whatchanged --diff-filter=A
+  edit-config = !vi ~/.gitconfig
+  amend = commit -a --amend
+  co = checkout
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  graph = log --graph --oneline --decorate
+  last-sprint = log --since='2 weeks ago' --oneline --decorate --author=mario.fink@goodyear.com 
+  unstage = reset HEAD --
+  st = status
+  ci = commit
+  br = branch
+  up = !git pull --rebase --prune $@ && git log --oneline ORIG_HEAD..
+  new = flow feature start
+  finish = flow feature finish -S
+  show-ignored = !git ls-files -v | grep -E "^[S]" # list files with the skip-worktree flag
+  ignore = update-index --skip-worktree # set the skip-worktree flag for a specified file
+  unignore = update-index --no-skip-worktree
+  delete-last-commit = reset --hard HEAD~1
+  rv = checkout HEAD -- # reset(revert) changes to a file
+  purge-tags = !git tag -l | xargs git tag -d && git fetch -t
+  recently-added = whatchanged --diff-filter=A
+  find-java-tests = !git log --since='4 weeks ago' --decorate --name-only | grep "Test.java" | sort | uniq
