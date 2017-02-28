@@ -21,6 +21,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'posva/vim-vue'
 Plugin 'chriskempson/base16-vim'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,6 +124,6 @@ let mapleader = ","
 nnoremap <Leader>L gg=G<cr>
 " Strip all trailing whitespace
 nnoremap <Leader>W :%s/\s\+$//<cr>:let @/=''<cr>
-" Use Tab and Shift-Tab to cycle through buffers
+" Use Tab and Ctrl-Tab to cycle through buffers
 nnoremap <Tab> :bn<cr>
-nnoremap <S-Tab> :bp<cr>
+nnoremap <C-Tab> :bp<cr>
