@@ -18,7 +18,7 @@ alias vim='mvim -v'
 alias ll='ls -lah'
 alias search='find . -iname '
 alias cd..='cd ..'
-alias serve='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary http://0.0.0.0:4321 & python -m SimpleHTTPServer 4321'
+alias serve='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary http://0.0.0.0:8888 & php -S 0.0.0.0:8888'
 
 source $HOME/.aliases
 
