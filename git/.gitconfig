@@ -41,3 +41,4 @@
   purge-tags = !git tag -l | xargs git tag -d && git fetch -t
   recently-added = whatchanged --diff-filter=A
   find-java-tests = !git log --since='4 weeks ago' --decorate --name-only | grep "Test.java" | sort | uniq
+  undo-last-commit = reset HEAD~
