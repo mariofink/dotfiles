@@ -106,10 +106,11 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_use_caching = 0
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -124,6 +125,11 @@ let mapleader = ","
 nnoremap <Leader>L gg=G<cr>
 " Strip all trailing whitespace
 nnoremap <Leader>W :%s/\s\+$//<cr>:let @/=''<cr>
-" Use Tab and Ctrl-Tab to cycle through buffers
-nnoremap <Tab> :bn<cr>
-nnoremap <C-Tab> :bp<cr>
+" Use Ctrl-Tab and Ctrl-Shift-Tab to cycle through buffers
+nnoremap <C-Tab> :bn<cr>
+nnoremap <C-S-Tab> :bp<cr>
+" Window navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
