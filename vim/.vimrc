@@ -82,11 +82,55 @@ filetype indent on
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set ai "Auto indent
+set si "Smart indent
 
 colorscheme base16-tomorrow-night
 
 set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set antialias
+
+
+" Make EditorConfig plugin work well with fugitive and over ssh
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+set wildmenu " visual autocomplete for command menu
+set showmatch " highlight matching [{()}]
+
+" CtrlP settings
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_use_caching = 0
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|' " use straight lines for tab separators
+set laststatus=2 " open statusline also on single panes
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+"""
+" MAPPINGS
+"""
+let mapleader = ","
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
 
 " Disabling the directional keys
 map <up> <nop>
@@ -97,30 +141,11 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+
 " Enter to insert a new line below
 " http://superuser.com/questions/607163/inserting-a-blank-line-in-vim#607189
 map <Enter> O<ESC>
-
-" Make EditorConfig plugin work well with fugitive and over ssh
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_use_caching = 0
-
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '|' " use straight lines for tab separators
-set laststatus=2 " open statusline also on single panes
-
 " Custom mappings
-let mapleader = ","
 " Auto-indent current buffer
 nnoremap <Leader>L gg=G<cr>
 " Strip all trailing whitespace
@@ -133,3 +158,5 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" turn off search highlight
+nnoremap <Leader><space> :nohlsearch<CR>
