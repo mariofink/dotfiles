@@ -117,6 +117,12 @@ set nobackup
 set nowb
 set noswapfile
 
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
 """
 " MAPPINGS
 """
@@ -128,6 +134,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
+
+" Remap VIM 0 to first non-blank character
+map 0 ^
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
