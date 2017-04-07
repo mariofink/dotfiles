@@ -57,7 +57,7 @@ set ignorecase            " Ignore case when searching
 set smartcase             " If there is an uppercase in your search term
                           " search case sensitive again
 set incsearch             " Highlight search results when typing
-set hlsearch              " Highlight search results
+set nohlsearch              " Highlight search results
 
 " -- Beep
 set visualbell            " Prevent Vim from beeping
@@ -155,8 +155,9 @@ imap <right> <nop>
 " http://superuser.com/questions/607163/inserting-a-blank-line-in-vim#607189
 map <Enter> O<ESC>
 " Custom mappings
-" Auto-indent current buffer
-nnoremap <Leader>L gg=G<cr>
+" Auto-indent current buffer without losing cursor position
+" (http://vi.stackexchange.com/questions/8389/how-can-you-indent-your-current-file-without-losing-your-cursor-position#8392)
+nnoremap <Leader>L maHmbgg=G`bzt`a<cr>
 " Strip all trailing whitespace
 nnoremap <Leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 " Use Ctrl-Tab and Ctrl-Shift-Tab to cycle through buffers
@@ -169,3 +170,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 " turn off search highlight
 nnoremap <Leader><space> :nohlsearch<CR>
+" Make `n`/`N` bring next search result to middle line
+nnoremap n nzz
+nnoremap N Nzz
+" `vv` to highlight just the text (i.e. no indents) in a line
+nnoremap vv ^vg_
+

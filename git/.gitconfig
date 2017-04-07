@@ -17,15 +17,15 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
-[commit]
-  template = ~/.stCommitMsg
+[log]
+  date = relative
 [alias]
   edit-config = !vi ~/.gitconfig
   amend = commit -a --amend
   co = checkout
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   graph = log --graph --oneline --decorate
-  last-sprint = log --since='2 weeks ago' --oneline --decorate --author=mario.fink@goodyear.com 
+  recap = log --oneline --no-merges --decorate --author=mario.fink@goodyear.com
   unstage = reset HEAD --
   st = status
   ci = commit
