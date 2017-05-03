@@ -9,8 +9,10 @@
   smudge = git media smudge %f
 [core]
   autocrlf = input
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore
   editor = /usr/bin/vim
+[merge]
+  conflictstyle = diff3
 [push]
   default = simple
 [filter "lfs"]
@@ -19,6 +21,12 @@
   required = true
 [log]
   date = relative
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[status]
+  showUntrackedFiles = all
 [alias]
   edit-config = !vi ~/.gitconfig
   amend = commit -a --amend
