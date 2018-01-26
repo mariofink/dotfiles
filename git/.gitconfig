@@ -33,7 +33,7 @@
   co = checkout
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   graph = log --graph --oneline --decorate
-  recap = log --oneline --no-merges --decorate --author=mario.fink@goodyear.com
+  recap = log --no-merges --author=mario.fink@goodyear.com --pretty=format:\"%C(yellow)%h%Creset %s %C(cyan)%cD%Creset\"
   unstage = reset HEAD --
   st = status
   ci = commit
@@ -50,3 +50,7 @@
   recently-added = whatchanged --diff-filter=A
   find-java-tests = !git log --since='4 weeks ago' --decorate --name-only | grep "Test.java" | sort | uniq
   undo-last-commit = reset HEAD~
+  undo-last-merge = reset --hard ORIG_HEAD
+  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)" # show branches with recent commits
+  flight-rules = !open https://github.com/k88hudson/git-flight-rules
+

@@ -83,3 +83,5 @@ compctl -K _completemarks unmark
 
 # Set Java_home
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
+export LANG=de_DE.UTF-8
