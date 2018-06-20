@@ -11,9 +11,6 @@ ZSH_THEME="agnoster"
 DEFAULT_USER="neif461"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi='mvim -v'
 alias vim='mvim -v'
 alias ll='ls -lah'
 alias search='find . -iname '
