@@ -11,6 +11,7 @@
   autocrlf = input
   excludesfile = ~/.gitignore
   editor = /usr/bin/vim
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
   conflictstyle = diff3
 [push]

@@ -10,13 +10,7 @@ ZSH_THEME="agnoster"
 
 DEFAULT_USER="neif461"
 
-# Example aliases
-alias vim='mvim -v'
-alias ll='ls -lah'
-alias search='find . -iname '
-alias cd..='cd ..'
-alias serve='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary http://0.0.0.0:8888 & php -S 0.0.0.0:8888'
-
+source $HOME/dotfiles/zsh/.aliases
 source $HOME/.aliases
 
 # Set to this to use case-sensitive completion
@@ -48,7 +42,7 @@ source $HOME/.aliases
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx git grunt colorize)
+plugins=(osx git colorize)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,3 +76,26 @@ compctl -K _completemarks unmark
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 export LANG=de_DE.UTF-8
+
+# Init jenv (jenv init -)
+export PATH="$HOME/.jenv/shims:${PATH}"
+source "/usr/local/Cellar/jenv/0.4.4/libexec/libexec/../completions/jenv.zsh"
+jenv rehash 2>/dev/null
+export JENV_LOADED=1
+unset JAVA_HOME
+jenv() {
+  typeset command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  enable-plugin|rehash|shell|shell-options)
+    eval `jenv "sh-$command" "$@"`;;
+  *)
+    command jenv "$command" "$@";;
+  esac
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
