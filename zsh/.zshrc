@@ -50,6 +50,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:$HOME/.composer/vendor/bin
+export PATH=~/Library/Python/3.7/bin:$PATH
+
 # see: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
 function j {
@@ -75,11 +77,11 @@ compctl -K _completemarks unmark
 # Set Java_home
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
-export LANG=de_DE.UTF-8
+export LANG=en_GB.UTF-8
 
 # Init jenv (jenv init -)
 export PATH="$HOME/.jenv/shims:${PATH}"
-source "/usr/local/Cellar/jenv/0.4.4/libexec/libexec/../completions/jenv.zsh"
+source "/usr/local/Cellar/jenv/0.5.2/libexec/libexec/../completions/jenv.zsh"
 jenv rehash 2>/dev/null
 export JENV_LOADED=1
 unset JAVA_HOME
@@ -100,3 +102,24 @@ jenv() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /private/tmp/appointment-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /private/tmp/appointment-lambda/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /private/tmp/appointment-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /private/tmp/appointment-lambda/node_modules/tabtab/.completions/sls.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Android SDK
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/build-tools
+
+function wetter(){
+  curl -s "wttr.in/${1:-Fulda}?lang=de"
+}
