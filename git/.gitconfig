@@ -1,6 +1,6 @@
 [user]
-  name = Mario Fink
-  email = mario.fink@goodyear.com
+	name = Mario Fink
+	email = mario.fink@goodyear.com
 [url "https://"]
   insteadOf = git://
 [filter "media"]
@@ -12,6 +12,7 @@
   excludesfile = ~/.gitignore
   editor = /usr/bin/vim
   pager = diff-so-fancy | less --tabs=4 -RFX
+	ignorecase = false
 [merge]
   conflictstyle = diff3
 [push]
@@ -54,4 +55,5 @@
   undo-last-merge = reset --hard ORIG_HEAD
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)" # show branches with recent commits
   flight-rules = !open https://github.com/k88hudson/git-flight-rules
+  recent-branches = for-each-ref --count=25 --sort=-committerdate refs/heads/ --format='%(refname:short)'
 
