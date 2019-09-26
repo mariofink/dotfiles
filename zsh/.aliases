@@ -2,8 +2,7 @@ alias vim='mvim -v'
 alias ll='ls -lah'
 alias search='fd'
 alias cd..='cd ..'
-alias serve='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://0.0.0.0:8888 & php -S 0.0.0.0:8888'
 alias did="vim +'normal Go' +'r!date' ~/Dropbox/did.txt"
-alias cat='bat --style=plain'
 alias preview="fzf --preview 'bat --color always {}'"
 alias lg=lazygit
+alias gitcheatsheet="curl cheat.sh/git"
