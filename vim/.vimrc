@@ -118,6 +118,8 @@ set nobackup
 set nowb
 set noswapfile
 
+set virtualedit=all
+
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -176,4 +178,5 @@ nnoremap n nzz
 nnoremap N Nzz
 " `vv` to highlight just the text (i.e. no indents) in a line
 nnoremap vv ^vg_
+
 
