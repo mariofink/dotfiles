@@ -75,30 +75,13 @@ compctl -K _completemarks unmark
 
 
 # Set Java_home
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 export LANG=en_GB.UTF-8
 
 # Init jenv (jenv init -)
-export PATH="$HOME/.jenv/shims:${PATH}"
-source "/usr/local/Cellar/jenv/0.5.2/libexec/libexec/../completions/jenv.zsh"
-jenv rehash 2>/dev/null
-export JENV_LOADED=1
-unset JAVA_HOME
-jenv() {
-  typeset command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  enable-plugin|rehash|shell|shell-options)
-    eval `jenv "sh-$command" "$@"`;;
-  *)
-    command jenv "$command" "$@";;
-  esac
-}
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
