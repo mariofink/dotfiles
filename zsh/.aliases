@@ -1,8 +1,6 @@
-alias vim='mvim -v'
 alias ll='ls -lah'
 alias search='fd'
 alias cd..='cd ..'
-alias did="vim +'normal Go' +'r!date' ~/Dropbox/did.txt"
 alias preview="fzf --preview 'bat --color always {}'"
 alias lg=lazygit
 alias gitcheatsheet="curl cheat.sh/git"
