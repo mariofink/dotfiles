@@ -56,4 +56,6 @@
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)" # show branches with recent commits
   flight-rules = !open https://github.com/k88hudson/git-flight-rules
   recent-branches = for-each-ref --count=25 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+  # https://preslav.me/2020/03/01/use-the-git-history/
+  code-changes = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -25"
 
