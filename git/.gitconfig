@@ -18,9 +18,10 @@
 [push]
   default = simple
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
   required = true
+	process = git-lfs filter-process
 [log]
   date = relative
 [diff]
@@ -59,3 +60,5 @@
   # https://preslav.me/2020/03/01/use-the-git-history/
   code-changes = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -25"
 
+[pull]
+	rebase = false
