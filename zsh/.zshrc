@@ -52,7 +52,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:$HOME/.composer/vendor/bin
 export PATH=~/Library/Python/3.7/bin:$PATH
 
-# see: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+# see: https://www.datascienceworkshops.com/blog/quickly-navigate-your-filesystem-from-the-command-line/
 export MARKPATH=$HOME/.marks
 function j {
     cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
@@ -106,3 +106,5 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/build-tools
 function wetter(){
   curl -s "wttr.in/${1:-Fulda}?lang=de"
 }
+
+# eval "$(starship init zsh)"
