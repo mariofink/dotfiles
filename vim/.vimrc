@@ -20,9 +20,9 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'posva/vim-vue'
-Plugin 'chriskempson/base16-vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'joshdick/onedark.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -86,7 +86,7 @@ set softtabstop=2
 set ai "Auto indent
 set si "Smart indent
 
-colorscheme base16-tomorrow-night
+colorscheme onedark
 
 set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set antialias
