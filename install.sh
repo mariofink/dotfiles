@@ -8,5 +8,6 @@ ln -s ~/dotfiles/zsh/.zshrc
 
 cd ~/.config
 ln -s ~/dotfiles/fish
+ln -s ~/dotfiles/omf
 ln -s ~/dotfiles/starship.toml
 
