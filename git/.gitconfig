@@ -1,6 +1,6 @@
 [user]
-	name = Mario Fink
-	email = mario.fink@goodyear.com
+  name = Mario Fink
+	email = mariofink@users.noreply.github.com
 [url "https://"]
   insteadOf = git://
 [filter "media"]
@@ -12,27 +12,29 @@
   excludesfile = ~/.gitignore
   editor = /usr/bin/vim
   pager = diff-so-fancy | less --tabs=4 -RFX
-	ignorecase = false
+  ignorecase = false
+  pager = delta # using https://github.com/dandavison/delta
 [merge]
   conflictstyle = diff3
 [push]
   default = simple
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
   required = true
-	process = git-lfs filter-process
+  process = git-lfs filter-process
 [log]
   date = relative
 [diff]
   tool = vimdiff
+  colorMoved = default
 [difftool]
   prompt = false
 [status]
   showUntrackedFiles = all
 [alias]
   edit-config = !vi ~/.gitconfig
-  amend = commit -a --amend
+  amend = commit --amend
   co = checkout
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   graph = log --graph --all --decorate --stat --date=iso
@@ -57,12 +59,20 @@
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)" # show branches with recent commits
   flight-rules = !open https://github.com/k88hudson/git-flight-rules
   recent-branches = for-each-ref --count=16 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+  remote-branches = branch -r --sort=committerdate
   # https://preslav.me/2020/03/01/use-the-git-history/
   code-changes = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -25"
   count-lines-of-code = "!git ls-files | xargs wc -l"
 
-
 [pull]
-	rebase = false
+  rebase = false
 [init]
-	defaultBranch = main
+  defaultBranch = main
+
+[interactive]
+	diffFilter = diff-so-fancy --patch
+
+[delta]
+  navigate = true  # use n and N to move between diff sections
+[branch]
+	sort = -committerdate
