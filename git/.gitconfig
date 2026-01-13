@@ -11,13 +11,13 @@
   autocrlf = input
   excludesfile = ~/.gitignore
   editor = /usr/bin/vim
-  pager = diff-so-fancy | less --tabs=4 -RFX
   ignorecase = false
   pager = delta # using https://github.com/dandavison/delta
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [push]
   default = simple
+  autoSetupRemote = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -27,7 +27,8 @@
   date = relative
 [diff]
   tool = vimdiff
-  colorMoved = default
+  colorMoved = plain
+  renames = true
 [difftool]
   prompt = false
 [status]
@@ -38,11 +39,12 @@
   co = checkout
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   graph = log --graph --all --decorate --stat --date=iso
-  recap = log --no-merges --author=mario.fink@goodyear.com --pretty=format:\"%C(yellow)%h%Creset %s %C(cyan)%cD%Creset\"
+  recap = log --no-merges --author='Mario Fink' --pretty=format:\"%C(yellow)%h%Creset %s %C(cyan)%cD%Creset\"
   unstage = reset HEAD --
   st = status
   ci = commit
   br = branch
+  sw = switch
   up = !git pull --rebase --prune $@ && git log --oneline ORIG_HEAD..
   new = flow feature start
   finish = flow feature finish -S
@@ -63,6 +65,7 @@
   # https://preslav.me/2020/03/01/use-the-git-history/
   code-changes = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -25"
   count-lines-of-code = "!git ls-files | xargs wc -l"
+  find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
 
 [pull]
   rebase = false
@@ -70,9 +73,16 @@
   defaultBranch = main
 
 [interactive]
-	diffFilter = diff-so-fancy --patch
+  diffFilter = delta --color-only
 
 [delta]
   navigate = true  # use n and N to move between diff sections
+
 [branch]
-	sort = -committerdate
+  sort = -committerdate
+[column]
+  ui = auto
+[tag]
+  sort = version:refname
+[commit]
+  verbose = true

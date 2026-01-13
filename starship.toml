@@ -2,16 +2,16 @@
 disabled = true
 
 [git_status]
-conflicted = "🏳"
+conflicted = "🚩"
 ahead = "🏎💨"
 behind = "😰"
 diverged = "😵"
-untracked = "🤷‍"
+untracked = "🤷"
 stashed = "📦"
 modified = "📝"
 staged = '[++\($count\)](green)'
 renamed = "👅"
-deleted = "🗑"
+deleted = "🗑️"
 
 [package]
 disabled = true
