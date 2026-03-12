@@ -1,13 +1,3 @@
-function nvm
-  bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-end
-
-# ~/.config/fish/functions/nvm_find_nvmrc.fish
-function nvm_find_nvmrc
-  bass source ~/.nvm/nvm.sh --no-use ';' nvm_find_nvmrc
-end
-
-# ~/.config/fish/functions/load_nvm.fish
 function load_nvm --on-variable="PWD"
   set -l default_node_version (nvm version default)
   set -l node_version (nvm version)
