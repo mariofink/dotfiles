@@ -34,22 +34,15 @@
         {
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b0",
-          "template": " {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }} ",
-          "foreground": "p:black",
-          "background": "p:yellow",
-          "type": "session",
-          "style": "diamond"
-        },
-        {
           "options": {
             "style": "folder"
           },
           "template": " \uea83 {{ path .Path .Location }} ",
-          "foreground": "p:white",
+          "foreground": "p:black",
+          "background": "p:yellow",
           "powerline_symbol": "\ue0b0",
-          "background": "p:orange",
           "type": "path",
-          "style": "powerline"
+          "style": "diamond"
         },
         {
           "options": {
@@ -72,7 +65,8 @@
           "foreground_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}p:black{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:white{{ end }}",
-            "{{ if gt .Ahead 0 }}p:white{{ end }}"
+            "{{ if gt .Ahead 0 }}p:white{{ end }}",
+            "{{ if gt .Behind 0 }}p:white{{ end }}"
           ]
         },
         {
@@ -94,9 +88,7 @@
           "background": "p:blue",
           "type": "status",
           "style": "diamond",
-          "background_templates": [
-            "{{ if gt .Code 0 }}p:red{{ end }}"
-          ]
+          "background_templates": ["{{ if gt .Code 0 }}p:red{{ end }}"]
         }
       ]
     },
@@ -109,20 +101,10 @@
             "fetch_package_manager": false,
             "home_enabled": false
           },
-          "template": "\ue718 ",
+          "template": "\ue718 {{ .Major }} ",
           "foreground": "p:green",
           "background": "transparent",
           "type": "node",
-          "style": "plain"
-        },
-        {
-          "options": {
-            "fetch_version": false
-          },
-          "template": "\ue626 ",
-          "foreground": "p:blue",
-          "background": "transparent",
-          "type": "go",
           "style": "plain"
         },
         {
@@ -135,13 +117,6 @@
           "foreground": "p:yellow",
           "background": "transparent",
           "type": "python",
-          "style": "plain"
-        },
-        {
-          "template": "in <p:blue><b>{{ .Name }}</b></> ",
-          "foreground": "p:white",
-          "background": "transparent",
-          "type": "shell",
           "style": "plain"
         },
         {
@@ -166,9 +141,7 @@
       "background": "p:orange",
       "type": "aws",
       "style": "diamond",
-      "tips": [
-        "aws"
-      ]
+      "tips": ["aws"]
     },
     {
       "options": {
@@ -181,9 +154,7 @@
       "background": "p:blue",
       "type": "az",
       "style": "diamond",
-      "tips": [
-        "az"
-      ]
+      "tips": ["az"]
     }
   ],
   "version": 4,
