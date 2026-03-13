@@ -1,5 +1,6 @@
 set LANG 'en_GB.UTF-8'
 set PATH $PATH
+set -g fish_greeting
 
 fenv source ~/.profile
 
