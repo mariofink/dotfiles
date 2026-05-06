@@ -46,8 +46,6 @@
   br = branch
   sw = switch
   up = !git pull --rebase --prune $@ && git log --oneline ORIG_HEAD..
-  new = flow feature start
-  finish = flow feature finish -S
   show-ignored = !git ls-files -v | grep -E "^[S]" # list files with the skip-worktree flag
   ignore = update-index --skip-worktree # set the skip-worktree flag for a specified file
   unignore = update-index --no-skip-worktree
@@ -66,6 +64,14 @@
   code-changes = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -25"
   count-lines-of-code = "!git ls-files | xargs wc -l"
   find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+  most-changed = "!git log --format=format: --name-only --since='1 year ago' | sort | uniq -c | sort -nr | head -20"
+  contributors = shortlog -sn --no-merges
+  # Difftastic aliases, so `git dlog -p` is `git log -p`
+  # with difftastic and likewise for the other subcommands.
+  dlog = -c diff.external=difft log --ext-diff
+  dshow = -c diff.external=difft show --ext-diff
+  ddiff = -c diff.external=difft diff
+  # Difftastic END
 
 [pull]
   rebase = false
