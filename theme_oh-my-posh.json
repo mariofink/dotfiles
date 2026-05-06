@@ -11,11 +11,11 @@
   },
   "secondary_prompt": {
     "template": "<p:yellow,transparent>\ue0b6</><,p:yellow> > </><p:yellow,transparent>\ue0b0</> ",
-    "foreground": "p:black",
+    "foreground": "p:white",
     "background": "transparent"
   },
   "transient_prompt": {
-    "template": "<p:yellow,transparent>\ue0b6</><,p:yellow> {{ .Folder }} </><p:yellow,transparent>\ue0b0</> ",
+    "template": "<p:blue,transparent>\ue0b6</><,p:blue> {{ .Folder }} </><p:blue,transparent>\ue0b0</> ",
     "foreground": "p:black",
     "background": "transparent"
   },
@@ -39,7 +39,7 @@
           },
           "template": " \uea83 {{ path .Path .Location }} ",
           "foreground": "p:black",
-          "background": "p:yellow",
+          "background": "p:blue",
           "powerline_symbol": "\ue0b0",
           "type": "path",
           "style": "diamond"
@@ -120,7 +120,7 @@
           "style": "plain"
         },
         {
-          "template": "at <p:blue><b>{{ .CurrentDate | date \"15:04:05\" }}</b></>",
+          "template": "⌚️ <p:blue><b>{{ .CurrentDate | date \"15:04:05\" }}</b></>",
           "foreground": "p:white",
           "background": "transparent",
           "type": "time",
